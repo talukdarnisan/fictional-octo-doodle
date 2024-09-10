@@ -2,7 +2,7 @@
   "name": "my-node-app",
   "version": "1.0.0",
   "description": "A simple Node.js app with MySQL connection",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "start": "node app.js"
   },
