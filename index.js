@@ -8,6 +8,14 @@ const port = 3008;
 const redisUrl = 'redis://:zjI9KW1VKmXV9QoPTWEVRKjy9pbwORgBUvaKVDL4G61bvcz3Js3FHvv9dZxNSDFX@83.171.249.37:5434/0';
 const redisClient = redis.createClient({ url: redisUrl });
 
+redisClient.on('error', (err) => {
+  console.error('Redis error:', err);
+});
+
+redisClient.on('connect', () => {
+  console.log('Connected to Redis');
+});
+
 // Middleware to check Redis connection
 app.use(async (req, res, next) => {
   try {
@@ -15,6 +23,7 @@ app.use(async (req, res, next) => {
     req.redisConnected = true;
   } catch (error) {
     req.redisConnected = false;
+    console.error('Redis connection failed:', error);
   }
   next();
 });
@@ -53,17 +62,4 @@ app.get('/cached-data', async (req, res) => {
       if (cachedData) {
         res.json(JSON.parse(cachedData));
       } else {
-        res.status(404).send('No data found in cache');
-      }
-    } else {
-      res.status(500).send('Redis connection is not successful');
-    }
-  } catch (error) {
-    res.status(500).send('Error fetching cached data');
-  }
-});
-
-// Start the server
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+        res.status(404).send('No da
