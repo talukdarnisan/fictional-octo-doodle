@@ -2,7 +2,7 @@ const express = require('express');
 const redis = require('redis');
 const axios = require('axios');
 const app = express();
-const port = 3000;
+const port = 3008;
 
 // Redis connection details
 const redisUrl = 'redis://:zjI9KW1VKmXV9QoPTWEVRKjy9pbwORgBUvaKVDL4G61bvcz3Js3FHvv9dZxNSDFX@83.171.249.37:5434/0';
