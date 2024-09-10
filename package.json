@@ -7,8 +7,8 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "mysql": "^2.18.1", // or "mysql2" if you prefer
-    "dotenv": "^16.0.0" // Optional for .env file management
+    "mysql": "^2.18.1", 
+    "dotenv": "^16.0.0"
   },
   "author": "",
   "license": "ISC"
