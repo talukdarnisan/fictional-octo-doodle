@@ -1,0 +1,15 @@
+{
+  "name": "my-node-app",
+  "version": "1.0.0",
+  "description": "A simple Node.js app with MySQL connection",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "mysql": "^2.18.1", // or "mysql2" if you prefer
+    "dotenv": "^16.0.0" // Optional for .env file management
+  },
+  "author": "",
+  "license": "ISC"
+}
