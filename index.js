@@ -3,11 +3,11 @@ const mysql = require('mysql2');
 require('dotenv').config();
 
 const app = express();
-const port = 3009; // Change port here to match Docker Compose settings
+const port = 3009;  // Port that the Node.js app will run on
 
 // MySQL connection setup
 const db = mysql.createConnection({
-  host: process.env.MYSQL_HOST,
+  host: process.env.MYSQL_HOST || 'localhost',
   user: process.env.MYSQL_USER,
   password: process.env.MYSQL_PASSWORD,
   database: process.env.MYSQL_DATABASE
