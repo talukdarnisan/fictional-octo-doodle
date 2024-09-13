@@ -1,13 +1,13 @@
 // db.js
 const mysql = require('mysql2');
 
-// Create a connection to the database
+// Load environment variables from process.env (dotenv is not needed in production)
 const connection = mysql.createConnection({
-    host: 'g8ooskkwossok488s4scg00s',
-    user: 'mysql',
-    password: 'i1p662CepxK2LNwWUp5GPvvsl6B9cAU0zsrdGbx9sOwdjz4hh3jjlvqoeRqe7kiw',
-    database: 'default',
-    port: 3306
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT || 3306
 });
 
 // Connect to the database
@@ -19,5 +19,4 @@ connection.connect((err) => {
     }
 });
 
-// Export the connection
 module.exports = connection;
