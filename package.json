@@ -6,11 +6,11 @@
   "scripts": {
     "start": "node index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
-    "mysql2": "^3.1.0"
-  }
+    "mysql2": "^3.1.0",
+    "dotenv": "^16.0.0"  // Add dotenv here
+  },
+  "author": "",
+  "license": "ISC"
 }
