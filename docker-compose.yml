@@ -6,7 +6,7 @@ services:
     container_name: mysql-connection-app
     working_dir: /app
     ports:
-      - "3009:3009"  # Expose port 3000 for your Node.js app
+      - "3009:3009"  # Expose port 3009 for your Node.js app
     environment:
       - NODE_ENV=production
       - MYSQL_HOST=mysql
