@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  app:
+    image: node:18
+    container_name: mysql-connection-app
+    working_dir: /app
+    ports:
+      - "3000:3000"  # Expose port 3000 for your Node.js app
+    environment:
+      - NODE_ENV=production
+      - MYSQL_HOST=mysql
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+    env_file:
+      - .env  # Use .env file for environment variables
+    volumes:
+      - .:/app  # Mount your project files
+    command: >
+      sh -c "npm install && npm start"  # Install dependencies and start the app
+    depends_on:
+      - mysql  # Ensure MySQL is ready before starting the app
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-database
+    ports:
+      - "3306:3306"  # Expose MySQL port 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql  # Persistent storage for MySQL data
+
+volumes:
+  mysql_data:
