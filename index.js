@@ -3,7 +3,7 @@ const express = require('express');
 const db = require('./db');  // Import the db connection
 
 const app = express();
-const port = 3000;
+const port = 3009;
 
 // Test route to check if the server and database are running
 app.get('/', (req, res) => {
